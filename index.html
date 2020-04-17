@@ -1,0 +1,676 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+	@font-face
+	{
+		font-family: TF2-Secondary;
+		src: url("fonts/TF2secondary.ttf");
+	}
+	
+	@font-face
+	{
+		font-family: TF2-Build;
+		src: url("fonts/tf2build.ttf");
+	}
+	body
+	{
+		background-color: black;
+		color: #d2d5db;
+	}
+	
+	h1
+	{
+		font: 4em TF2-Build;
+		color: #b8ad93;
+		text-align: center;
+	}
+	
+	h2
+	{
+		font: 3em TF2-Build;
+		color: #b8ad93;
+		text-align: center;
+	}
+
+	.section
+	{
+		background-color: #39342e;
+		text-align: center;
+		
+		border: 2px solid #766860;
+		border-radius: 50px;
+		
+		width: 90%;
+		max-width: 2400px;
+		
+		position: relative;
+		margin: 0 auto;
+		overflow:hidden;
+	}
+	
+	p
+	{
+		padding: 0 25% 0 25%;
+		text-align: left;
+		font: 1.5em TF2-Secondary;
+	}
+	
+	img
+	{
+		display: block;
+		width: 75%;
+		margin: auto auto;
+	}
+	
+	.list
+	{
+		width: 1000px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	
+	.row
+	{
+		width: inherit;
+		margin-bottom: 4px;
+		position: relative;
+		float: left;
+	}
+	
+	.stat
+	{
+		overflow: hidden;
+		height: inherit;
+		max-height: 0;
+		padding-top: 110px;
+		transition: max-height 0.25s ease-out;
+		width: 288px;
+		margin-left: 4px;
+		position: relative;
+		float:left;
+		background-color: #24201B;
+		border: 4px solid #766860;
+		border-radius: 4px;
+	}
+	
+	.stat:hover
+	{
+		max-height: 1500px;
+		transition: max-height 0.5s ease-in;
+	}
+	
+	#statcounter
+	{
+		color: #756B5E;
+		font: 1.5em TF2-Secondary;
+	}
+	
+	#stattext
+	{
+		top: 10px;
+		position: absolute;
+		color: #CF6A32; 
+		font: 2.5em TF2-Build;
+		right: 0;
+		text-align: center;
+	}
+	
+	.medal
+	{
+		height: inherit;
+		width: 196px;
+		margin-left: 4px;
+		position: relative;
+		float:left;
+		border-radius: 4px;
+	}
+	
+	.medal.rust
+	{
+		background: linear-gradient(to bottom, #39342e 0%, #b7410e 50%, #39342e 100%);
+	}
+	
+	.medal.iron
+	{
+		background: linear-gradient(to bottom, #39342e 0%, #797C76 50%, #39342e 100%);
+	}
+	
+	.medal.bronze
+	{
+		background: linear-gradient(to bottom, #39342e 0%, #cd7f32 50%, #39342e 100%);
+	}
+	
+	.medal.silver
+	{
+		background: linear-gradient(to bottom, #39342e 0%, #c0c0c0 50%, #39342e 100%);
+	}
+	
+	.medal.gold
+	{
+		background: linear-gradient(to bottom, #39342e 0%, #ffd700 50%, #39342e 100%);
+	}
+	
+	.medal.platinum
+	{
+		background: linear-gradient(to bottom, #39342e 0%, #B7C6D9 50%, #39342e 100%);
+	}
+	
+	.medalpicture
+	{
+		margin: 50px auto;
+		position: relative;
+		
+		height: 150px;
+		width: 150px;
+	}
+	
+	.medalelement
+	{
+		margin-top: 50px;
+		position: relative;
+		text-align: center;
+		width: 192px;
+		padding: 0 0 0 0;
+	}
+	
+	.steamProfile
+	{
+		height: 50px;
+		width: 246px;
+		margin-left: 4px;
+		
+		background: linear-gradient(to bottom, #536fa0 0%, #2e3e59 100%);
+		border-radius: 4px;
+		
+		position: relative;
+		float:left;
+	}
+	
+	.steamProfile:hover
+	{
+		background: linear-gradient(to bottom, #45659b 0%, #1f2e47 100%);
+	}
+	
+	.steamProfile.maker
+	{
+		background: linear-gradient(to bottom, #FFAA47 0%, #89570E 100%);
+	}
+	
+	.steamProfile.maker:hover
+	{
+		background: linear-gradient(to bottom, #ffcb3d 0%, #a56001 100%);
+	}
+
+	.iconProfile
+	{
+		position: absolute;
+		top: 10%;
+		left:  5px;
+		height: 44px;
+		width: 44px;
+	}
+	
+	.UserIcon
+	{
+		border-radius: 2px;
+		border: 4px solid #c7c8c9;
+	}
+	
+	.UserIcon.maker
+	{
+		border-color: #fcf4e3;
+	}
+	
+	.UserName
+	{
+		width: 140px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		
+		font: 1.2em TF2-Build;
+		color: #c7c8c9;
+		text-align: left;
+		padding-top: 5px;
+		padding-left: 50px;
+		overflow: hidden;
+	}
+	
+	.UserName.maker
+	{
+		color: #fcf4e3;
+	}
+</style>
+<head>
+	<title>Canteen Crasher - The End</title>
+</head>
+<meta name="viewport" content="width=2400px, initial-scale=1">
+<body>
+	<img src="bg.png" alt="Canteen Crasher">
+	<div class="section">
+		<h1>Operation announced on April 9th 2018<br>Operation ended on May 16th 2019</h1>
+		<p>Following the Titanium Tank event, this community event featured 30 maps with 68 missions. Completing the campaign rewarded you with up to five medals, from rust to gold. </p>
+		<p>Exactly 100 contracts were available during the event, with the objective to complete these contracts and missions to earn enough stars to reach each medal tier.</p>
+		<p>All content creators who had a submission accepted into the campaign were eligible for the sixth, highest-tier medal: the Platinum Canteen.</p>
+		
+		<div style="overflow: hidden;">
+		<h2>The Medals</h2>
+			<div class="list" style="width:1200px">
+				<div class="row" style="height:400px">
+					<div class="medal rust"><p class="medalelement">Rust</p><img class="medalpicture" src="https://wiki.teamfortress.com/w/images/1/1c/Backpack_Canteen_Crasher_Rust_Starter_Medal_2018.png"><p class="medalelement">1 star</p></div>
+					<div class="medal iron"><p class="medalelement">Iron</p><img class="medalpicture" src="https://wiki.teamfortress.com/w/images/b/b4/Backpack_Canteen_Crasher_Iron_Recall_Medal_2018.png"><p class="medalelement">30 stars</p></div>
+					<div class="medal bronze"><p class="medalelement">Bronze</p><img class="medalpicture" src="https://wiki.teamfortress.com/w/images/4/4a/Backpack_Canteen_Crasher_Bronze_Ammo_Medal_2018.png"><p class="medalelement">75 stars</p></div>
+					<div class="medal silver"><p class="medalelement">Silver</p><img class="medalpicture" src="https://wiki.teamfortress.com/w/images/b/be/Backpack_Canteen_Crasher_Silver_Building_Medal_2018.png"><p class="medalelement">150 stars</p></div>
+					<div class="medal gold"><p class="medalelement">Gold</p><img class="medalpicture" src="https://wiki.teamfortress.com/w/images/4/48/Backpack_Canteen_Crasher_Gold_Uber_Medal_2018.png"><p class="medalelement">225 stars</p></div>
+					<div class="medal platinum"><p class="medalelement">Platinum</p><img class="medalpicture" src="https://wiki.teamfortress.com/w/images/f/f9/Backpack_Canteen_Crasher_Platinum_Crit_Medal_2018.png"><p class="medalelement">300 stars<br><span style="color:red;font-size:0.7em;">(Content Creator Only!)</p></span></div>
+				</div>
+			</div>
+		</div>
+		<div style="overflow: hidden;">
+		<h2>Strange Counters</h2>
+			<div class="list" style="width:1200px;min-height:400px">
+					<div class="row">
+					<div class="stat"><span id="statcounter">Waves: 4,295,957</span><span id="stattext">Waves Defeated</span></div>
+					<div class="stat"><span id="statcounter">Scout Contracts: 16,177<br>
+															Soldier Contracts: 16,277<br>
+															Pyro Contracts: 11,032<br>
+															Heavy Contracts: 15,159<br>
+															Medic Contracts: 16,241<br>
+															Demo Contracts: 9,103<br>
+															Engineer Contracts: 19,115<br>
+															Sniper Contracts: 5,891<br>
+															Spy Contracts: 4,601<br>
+															All-Class Contracts: 12,810<br>
+															</span><span id="stattext">Contracts completed</span></div>
+					<div class="stat"><span id="statcounter">Unique Players: 31,103<br></span><span id="stattext">Total players</span></div>
+					<div class="stat"><span id="statcounter">Rust Medals: 28,670<br>Iron Medals: 12,167<br>Bronze Medals: 6,623<br>Silver Medals: 3,859<br>Gold Medals: 2,815<br>Platinum Medals: 57</span><span id="stattext">Medals distributed</span></div>
+					</div>
+			</div>
+		</div>
+		<div style="overflow: hidden;">
+		<h2>Meet the team</h2>
+		<div class="list">
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198059675572"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/ae/ae64c3edeb47733dac56497ee5fd7e93b28bc6ec_medium.jpg"></div>
+							<div class="UserName maker">Kenzzer<br><span style="font: 0.7em TF2-Secondary;">Campaign Developer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198023936575/"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/2d/2db344d44962ead370ccd671ea4bb9d9a87009a8_medium.jpg"></div>
+							<div class="UserName maker">Sigsegv<br><span style="font: 0.7em TF2-Secondary;">Campaign Developer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198071195301"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/24/240209ca226e5a0902c850011e9fdbf9bc255503_medium.jpg"></div>
+							<div class="UserName maker">Hydrogen<br><span style="font: 0.7em TF2-Secondary;">Campaign Developer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198025371616"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/6b/6bf760fa16c18744f4c8cfb9317fe202a5af5f3b_medium.jpg"></div>
+							<div class="UserName maker">Pelipoika<br><span style="font: 0.7em TF2-Secondary;">Campaign Developer</span></div> 
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198066922621"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/f4/f472c2de9b13f4aee53df572c2ce9d948f2cfdbb_medium.jpg"></div>
+							<div class="UserName maker">Kratos<br><span style="font: 0.7em TF2-Secondary;">Submission Reviewer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198130181779"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/15/1549f92da5db056829de6a834e8cb8f7cc2248ab_medium.jpg"></div>
+							<div class="UserName maker">Swordstone<br><span style="font: 0.7em TF2-Secondary;">Submission Reviewer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198072705060"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/9f/9f1dbdc9029611d5853ee59c16632599df6904fa_medium.jpg"></div>
+							<div class="UserName maker">Hyperion<br><span style="font: 0.7em TF2-Secondary;">Submission Reviewer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198035883728"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b1/b1be49bdcd2fdee90c602c4f46789e1ee3dd2418_medium.jpg"></div>
+							<div class="UserName maker">Interrobang<br><span style="font: 0.7em TF2-Secondary;">Submission Reviewer</span></div> 
+				</div></a>
+				</div><div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198000559913"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/2b/2b3284dd0f24abea231ebf810adc1e876b2b3bc4_medium.jpg"></div>
+							<div class="UserName maker">Sntr<br><span style="font: 0.7em TF2-Secondary;">Submission Reviewer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198049204840"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/d9/d9a282a22a206395e66bd99729cc76591b384e1c_medium.jpg"></div>
+							<div class="UserName maker">Star Bright<br><span style="font: 0.7em TF2-Secondary;">Submission Reviewer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198067257865"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/a4/a43bc9b35f0260080b5c666b6902cca901a92603_medium.jpg"></div>
+							<div class="UserName maker">Nuke<br><span style="font: 0.7em TF2-Secondary;">Submission Reviewer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198024345013"><div class="steamProfile maker">
+							<div class="iconProfile maker"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/97/97371c753547f25a0317c7801c4de27e70d6c99a_medium.jpg"></div>
+							<div class="UserName maker">Jakapoa<br><span style="font: 0.7em TF2-Secondary;">Submission Reviewer</span></div> 
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198001380197/"><div class="steamProfile maker">
+						<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/de/def01eae05b13f00c012d00b2d55367104deab6f_medium.jpg"></div>
+						<div class="UserName maker">Erikku<br><span style="font: 0.7em TF2-Secondary;">Submission Reviewer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198120534946/"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/e0/e0b63b528a4ada985a34e100426ee0b775e0a667_medium.jpg"></div>
+							<div class="UserName maker">DaanBox<br><span style="font: 0.7em TF2-Secondary;">Submission Reviewer</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198052695815"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/24/24f79d7a3f01c8f2973d0a97d02d213fa8ec81eb_medium.jpg"></div>
+							<div class="UserName maker">Wave<br><span style="font: 0.7em TF2-Secondary;">Coding Helper</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198045651005"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5a/5aafc4ef96c94fbd9f0ed2816872435315bd0d06_medium.jpg"></div>
+							<div class="UserName maker">Rev<br><span style="font: 0.7em TF2-Secondary;">Poster Maker</span></div> 
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198060934132"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/77/77a6e7391d62b7b215a6bfa4f7dca0acc68180ca_medium.jpg"></div>
+							<div class="UserName maker">Colteh<br><span style="font: 0.7em TF2-Secondary;">Medal Creator</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561197972481083"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/e5/e576c518249e2d0b0ad55fa5de1121b0c01291c6_medium.jpg"></div>
+							<div class="UserName maker">NeoDement<br><span style="font: 0.7em TF2-Secondary;">Medal Creator</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198047437575"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/01/013733646db3709dfa76fed7cf50b5f259fc77d5_medium.jpg"></div>
+							<div class="UserName maker">SediSocks<br><span style="font: 0.7em TF2-Secondary;">Medal Creator</span></div> 
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561197971984933"><div class="steamProfile maker">
+							<div class="iconProfile"><img class="UserIcon maker" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/42/42a27f44d4860c9207ab35c36cf2ed37f707db3e_medium.jpg"></div>
+							<div class="UserName maker">Glubbable<br><span style="font: 0.7em TF2-Secondary;">Server Provider</span></div> 
+				</div></a>
+			</div>
+		</div>
+		<div class="list">
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561197982569975"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/97/97c7e98bef703f39dd41f5cea2c8c5e9199b9d78_medium.jpg"></div>
+					<div class="UserName">&lt;&lt;GT500&gt;&gt; JZeeba<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198078430672"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/20/20dff0cd737f238f0c330248b61bc2a40b236553_medium.jpg"></div>
+					<div class="UserName">Alexander Harrold<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198198643366"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/9d/9d76527c48addc665640c4f3511fc15d218fb18c_medium.jpg"></div>
+					<div class="UserName">Andrei<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198110725104"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/c2/c2f0996b3ac4140d6b6a362c033b30963cdc0c20_medium.jpg"></div>
+					<div class="UserName">Angel<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198045591112"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/0a/0a375906abb0c8096c96834b1125706e1e7b8036_medium.jpg"></div>
+					<div class="UserName">Asd417<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198133037212"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/92/920387777a722be58f18c935e71f2f299fb6f4ff_medium.jpg"></div>
+					<div class="UserName">BigfootBeto<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561197995064139"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/31/318b2dd560713619e31ea7c5db3d2a0392566d5f_medium.jpg"></div>
+					<div class="UserName">Blade x64<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198090153311"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/e4/e453004ebd4d4525ff7fdac21975cbc1cad040f2_medium.jpg"></div>
+					<div class="UserName">Chipbeam<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198044312360"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/21/2136d1d234de131200859518d9b136ef2040a297_medium.jpg"></div>
+					<div class="UserName">Clickin<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198043356414"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/9c/9c489b1b0ac10eb011a2372083c234b579808cc1_medium.jpg"></div>
+					<div class="UserName">CoBalt<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198326775777"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/2d/2d5ddb00a70e3a574c687a52842db349406804c3_medium.jpg"></div>
+					<div class="UserName">Crinitus<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198118654763"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/90/90a285d964e1bbc1cbef1f9559d265d16d1d2b07_medium.jpg"></div>
+					<div class="UserName">DJB2401<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198071007154"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/a0/a0e38db5804c09aaec2f536eec1f5273a83a5750_medium.jpg"></div>
+					<div class="UserName">Dayal<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198115666573"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/6b/6b99934cd45dcbd3d415700e545142fb26af1e43_medium.jpg"></div>
+					<div class="UserName">Delta 🍁<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198171985631"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/a3/a3509d5a525dc5bb5c792a5b33fe1e39e21dca59_medium.jpg"></div>
+					<div class="UserName">DemoN K!ng<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198228652840"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/47/47b77d1dc49d849b294bb6c2fd8f64fe35063f93_medium.jpg"></div>
+					<div class="UserName">Dr. Pope<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198214364347"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/f6/f67d97aa911b04e56e35a6b5300722e52111248c_medium.jpg"></div>
+					<div class="UserName">DrSquishy<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198009725798"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/48/4818d186272973abe391d2119b0cd5447a6483a0_medium.jpg"></div>
+					<div class="UserName">FiveEyes<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561197988875517"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/c5/c5d6ff4b8ce09dc8fed6c9162b0e153cc7bc6aa5_medium.jpg"></div>
+					<div class="UserName">Gadget<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198096977497"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/87/87f37bc6e68aab494aaccf21ca041ecf02c1b9f7_medium.jpg"></div>
+					<div class="UserName">Gian<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561197997652337"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/dc/dcada1cb2d058d15cb0a15f6892323552de730ce_medium.jpg"></div>
+					<div class="UserName">Gigazelle<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561197974413252"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/61/61bcb95867091b34ac00835c43a8442545d7801d_medium.jpg"></div>
+					<div class="UserName">HeRp-A-dErP-a-NErp.eXe<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561197965468138"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/44/447cd5e6102f45c164ee3c7bcd19a06b8d8b6aec_medium.jpg"></div>
+					<div class="UserName">Hell-met<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198009056509"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/65/65891aa5fcf4608f4fade102533b1d55b0c7ae75_medium.jpg"></div>
+					<div class="UserName">Hotrod McCoolguy<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198051482409"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/f0/f0b8baf6560547f1d04a8213579835ead2f5df81_medium.jpg"></div>
+					<div class="UserName">IJCT<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198025656147"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/34/349cfe4f9d8e8be2eeca6a615ac35d2211499a9c_medium.jpg"></div>
+					<div class="UserName">JugadorXEI<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198128576895"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b6/b60ef5d6661917cd99599ada475fc68a72aefe64_medium.jpg"></div>
+					<div class="UserName">KaidemonLP The Juice King<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198078572878"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/09/09d7435442f90d06e13b2b86f468587d1c30f0b8_medium.jpg"></div>
+					<div class="UserName">Lee Harrold<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198117200714"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/c0/c04b4d1e3bb694a63d535d00438b4ecd791bb7fb_medium.jpg"></div>
+					<div class="UserName">Lysithea<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198066319338"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/75/75c56fe13c6f14b10b2fe95db096e82650624818_medium.jpg"></div>
+					<div class="UserName">Mikroscopic<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198066083706"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/13/13dd6e80e9aaa456753d163f4215f8d5ad7a4274_medium.jpg"></div>
+					<div class="UserName">Mmmmmmmmmmmmmmmmm<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198306352324"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/13/138668f2c281556804ff04ee2c48eb36eb0af08d_medium.jpg"></div>
+					<div class="UserName">Oo̴ga̵ly̷̍B̷̈oo̷͑galy̷<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198078856258"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/64/640a89ac184d90c959eaaced648fd074af65e7b2_medium.jpg"></div>
+					<div class="UserName">Overlord Lettuce<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561197999091748"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/78/78365da44c9f181705a5a77a2adc5a4f9dde4d98_medium.jpg"></div>
+					<div class="UserName">PEAR<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561197998443240"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/87/87ae9caaaaef5a43d3a9789d937cab7c341018c4_medium.jpg"></div>
+					<div class="UserName">Pdan❹<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198041314432"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/46/461a0968cbb6f4c57822e5313a54c58260713dd7_medium.jpg"></div>
+					<div class="UserName">PenolAkushari<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561197992929419"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/25/2574464a9ef461d3ff660bce912fa9b19191e447_medium.jpg"></div>
+					<div class="UserName">Pie_Savvy<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198045068724"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/55/559f605cb0297cef02fd6bedc4b879334978b5de_medium.jpg"></div>
+					<div class="UserName">Purriz<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198083452034"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/2c/2c7b8a8cc635a270e19ad717731366647a3cc8b5_medium.jpg"></div>
+					<div class="UserName">Remilia Scarlet<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198096861957"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/54/5412e876cacbb99069f3e8d72e2d405dd49eefd3_medium.jpg"></div>
+					<div class="UserName">Robo-Poot<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198007027895"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/b8/b83be73a0e7d4b919d42b580334a3dedb2e5a80d_medium.jpg"></div>
+					<div class="UserName">Rytu - twitch.tv/rytugamer<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198142893003"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/55/552690d6add6959c1be99c1e6d4159171b6b681b_medium.jpg"></div>
+					<div class="UserName">Scoutfingers<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198080260467"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/99/99adb0e856f3f9d951164aaa9ee9cb5e4606df22_medium.jpg"></div>
+					<div class="UserName">Sergeant Crwhips<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198046052187"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/d9/d9dbf54afda486e56eda936593c0ddb576b64fdf_medium.jpg"></div>
+					<div class="UserName">Subsimple<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198027574567"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/a8/a805b8065d25010070ee5e9148328c111d675df5_medium.jpg"></div>
+					<div class="UserName">Tabby<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198033410465"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d56c54c322fc6b638c8888cb4548fe0506e0d73_medium.jpg"></div>
+					<div class="UserName">That Hat Guy<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561197984688600"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/81/816e966cfd0ed06351d31f0a15d57ead0498881d_medium.jpg"></div>
+					<div class="UserName">Tindall Berry<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198059856190"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/30/301e1b51bef67bed70fe943a8ff73b0bfd1e08cb_medium.jpg"></div>
+					<div class="UserName">UltimentM<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198259136519"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/e4/e423ee04545f14b2f2d8fad87853676327258ba6_medium.jpg"></div>
+					<div class="UserName">VortexParadox<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198026844114"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5d/5d84a456826a5ffdfd20a9356050d7e02b7e9c10_medium.jpg"></div>
+					<div class="UserName">Wolfenstein<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198092283741"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/5a/5a89d6c3ad9c6d6df602631afa645164764f6305_medium.jpg"></div>
+					<div class="UserName">WｉｎｇDｉｎｇ<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198013839188"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/7f/7f6431e6381117e9f25415854b7d7e5f4190cffa_medium.jpg"></div>
+					<div class="UserName">Xarcks<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198002162558"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/3b/3bcccb8208c2686e5d8f0975e4f48872589c56a2_medium.jpg"></div>
+					<div class="UserName">Yrrzy<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198077247660"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/43/43ceb3f60bfbeb1e03aa066bee8b2aa95abe5dd1_medium.jpg"></div>
+					<div class="UserName">[82DK] Sir Metaladon<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198167640066"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/1a/1ad1733539fc013ca94828ac2faf5ca82c4f26df_medium.jpg"></div>
+					<div class="UserName">[AMvM]The One Of Wonders<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561197972168329"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/41/41e7730e2b6d79c31d4c891899f5dc784b6544b5_medium.jpg"></div>
+					<div class="UserName">[RMF]RIKUSYO<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561197990794206"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/c8/c8f75a2610ac1575a90d0a54e32c8c637b780288_medium.jpg"></div>
+					<div class="UserName">]TPG[ emrfish<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198294712284"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/a5/a5fadaf6af26889151ff92bfec5fbed43dfe296d_medium.jpg"></div>
+					<div class="UserName">gamering<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198039700295"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/30/30ff8175908adc91b3261c774a6b9ff1cd19d224_medium.jpg"></div>
+					<div class="UserName">signalmax<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198110010173"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/d1/d1f9cdcac6f6a10a53a109b112d313f9b6d1b5a9_medium.jpg"></div>
+					<div class="UserName">theAgamer11<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+			<div class="row">
+				<a href="https://steamcommunity.com/profiles/76561198069170134"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/c1/c101b372ffe54b70d18320ad3cd84b847eafe43e_medium.jpg"></div>
+					<div class="UserName">¬°The Big Wah<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198010436204"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/fc/fc7171ee4cd714a000b128b2a10d273ac71e5017_medium.jpg"></div>
+					<div class="UserName">±<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198086337571"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/27/27355856cd2a3dcee035ed7c8310317946591467_medium.jpg"></div>
+					<div class="UserName">♓A Slightly Snowy Seelpit♓<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+				<a href="https://steamcommunity.com/profiles/76561198078778730"><div class="steamProfile">
+					<div class="iconProfile"><img class="UserIcon" src="https://steamcdn-a.akamaihd.net/steamcommunity/public/images/avatars/91/91b6743719eec4469584b720e1397d979706ed30_medium.jpg"></div>
+					<div class="UserName">ﺍﺍfаѕтﺍﺍ<br><span style="font: 0.7em TF2-Secondary;">Content Maker</span></div>
+				</div></a>
+			</div>
+		</div>
+		</div>
+	</div>
+	<h1 style="color:#f73dad">♡ THANK YOU FOR PLAYING OUR EVENT! ♡</h1>
+</body>
+</html>
